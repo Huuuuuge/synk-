@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/scene/New Scene.unity
+    guid: ae857823d713a6f44b0ad44096528991
+  - enabled: 1
+    path: Assets/Scenes/stage.unity
+    guid: 8ebff1c8473bb1b46ad8597f623baf7c
+  - enabled: 1
+    path: Assets/Scenes/scene/New Scenzzzz.unity
+    guid: 9ec3c8bd566611943910e315c5ab0c5f
+  - enabled: 1
+    path: Assets/Scenes/building fol/building.unity
+    guid: 6fcd034509675644abb39da6da2d998b
+  - enabled: 1
+    path: Assets/Scenes/building fol/scenr.unity
+    guid: 0eeceb253e34f20409c2073ddc1d9c38
+  - enabled: 1
+    path: Assets/Scenes/building fol/scenz.unity
+    guid: 2050a46f3f7b8e24f8f5aa86cb513a6b
+  - enabled: 1
+    path: Assets/Scenes/darkroom/darkroom.unity
+    guid: be05a5477155e7e459a31a1964eb4f4a
+  - enabled: 1
+    path: Assets/Scenes/darkroom/darkroomz.unity
+    guid: aef514ab211f83244a6375ca3b1623ce
+  - enabled: 1
+    path: Assets/Scenes/darkroom/darkroov.unity
+    guid: 5b778fbcba465eb45b76b59e552773eb
+  - enabled: 1
+    path: Assets/Scenes/depression.unity
+    guid: 16e2efa6b23470c4aab8d708eca6711e
+  - enabled: 1
+    path: Assets/Scenes/simulation.unity
+    guid: 3a5d62a369bc23749952233d68664f7e
+  - enabled: 1
+    path: Assets/Scenes/inside.unity
+    guid: 6e0c064a18f2665408ebc0659d8875d3
+  - enabled: 1
+    path: Assets/Scenes/out.unity
+    guid: 127245adb0e143142b29c99064e0b131
+  m_configObjects: {}
