@@ -5,10 +5,11 @@ import matplotlib.pyplot as plt
 from time import time
 import math 
 
+good_frames = 1
+total_frames = 1
+start = False
 mp_pose=mp.solutions.pose
-
 pose=mp_pose.Pose(static_image_mode=True,min_detection_confidence=0.5,model_complexity=1)
-
 mp_drawing=mp.solutions.drawing_utils
 
 def detectPose(image,pose):
@@ -43,6 +44,8 @@ def calculateAngle(landmark1,landmark2,landmark3):
     return angle
 
 def classifyPose(landmarks):
+    
+    global total_frames, start,good_frames
     points = []
     print("LEFT SHOULDER: ",landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value])
     points.append([landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value][0],landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value][1]])
@@ -120,14 +123,22 @@ def classifyPose(landmarks):
 
     mp = midpoint(points[0],points[1])
     print("Mid Point", mp)
-    if (left_shoulder_angle >= 25 and  left_shoulder_angle <= 50) and (right_shoulder_angle >= 25 and  right_shoulder_angle <= 50) and (left_elbow_angle >= 170 and  left_elbow_angle <= 190) and (right_elbow_angle >= 170 and  right_elbow_angle <= 190)  and (left_knee_angle >= 170 and  left_knee_angle <= 190) and (right_knee_angle >= 170 and  right_knee_angle <= 190):
+    if start:
+        total_frames += 1
+    if (left_shoulder_angle >= 70 and  left_shoulder_angle <= 95) and (right_shoulder_angle >= 75 and  right_shoulder_angle <= 95) and (left_elbow_angle >= 170 and  left_elbow_angle <= 200) and (right_elbow_angle >= 170 and  right_elbow_angle <= 200)  and (left_knee_angle >= 170 and  left_knee_angle <= 190) and (right_knee_angle >= 170 and  right_knee_angle <= 190):
+        good_frames+=1
+        start = True
         return (points,True,"T-Pose")
 
 
-    elif  (left_elbow_angle >= 310 and left_elbow_angle <= 330) and  (right_elbow_angle >= 30 and right_elbow_angle <= 55) and (left_knee_angle >= 170 and  left_knee_angle <= 190) and (right_knee_angle >= 15 and  right_knee_angle <= 40) and (left_shoulder_angle >= 25 and  left_shoulder_angle <= 50) and (right_shoulder_angle >= 25 and  right_shoulder_angle <= 50):
+    elif  (left_elbow_angle >= 310 and left_elbow_angle <= 330) and  (right_elbow_angle >= 30 and right_elbow_angle <= 55) and (left_knee_angle >= 170 and  left_knee_angle <= 190) and (right_knee_angle >= 20 and  right_knee_angle <= 60) and (left_shoulder_angle >= 30 and  left_shoulder_angle <= 70) and (right_shoulder_angle >= 25 and  right_shoulder_angle <= 55):
+        good_frames += 1
+        start = True
         return (points,True,"Tree pose")
 
-    return (points,False,"No pose detected")
+    else:
+
+        return (points,False,"No pose detected")
     
 pose_video = mp_pose.Pose(static_image_mode=False,min_detection_confidence=0.5,model_complexity=1)
 video = cv2.VideoCapture(0)
@@ -146,6 +157,8 @@ while True:
         else:
             cv2.circle(frame, [50,50], 30, (0,0,255), 20)
             cv2.putText(frame, poseName, (20,450), cv2.FONT_HERSHEY_SIMPLEX, fontScale= 1, color= (0,0,255), thickness=3)
+            efficiency = (good_frames/ (total_frames)) * 100
+            cv2.putText(frame, f"Efficiency: {efficiency:.2f}%", (300,20), cv2.FONT_HERSHEY_SIMPLEX, fontScale= 0.7, color= (0,0,255), thickness=3)
     cv2.imshow('Image',frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
