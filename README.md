@@ -1,11 +1,11 @@
-##sync'
+## sync'
 
 ## Inspiration and What it does
 **synk'** is a comprehensive solution for mental and physical health that is _accessible, convenient, and effective_. Inspired by the need for better treatment options for people with mental health conditions, our app uses VR technology to create immersive virtual environments where users can safely confront and work through their challenges. In addition to helping with mental health, our app includes a yoga posture correction module to help users stay physically fit. Our goal is to empower people to take control of their well-being and live happier healthier lives. With our app, traditional therapy options are no longer the only option, and users can receive treatment from the comfort of their own homes. By bringing together VR technology and evidence-based therapy methods, we are revolutionizing the way people receive treatment.
 
 synk' also includes features that promote engagement and accountability, such as progress tracking and a leaderboard for the yoga module. This allows users to see how far they have come and stay motivated to continue on their wellness journey. Our app is designed to be user-friendly and easy to use, with a straightforward interface and simple navigation. Our virtual environments are immersive and realistic, helping users to feel as though they are actually in the situation they are working on. Whether you're struggling with a mental health condition, looking to improve your physical fitness, or simply looking for a convenient and effective way to take control of your well-being, **synk'** is the solution you've been searching for.
 
-##Key Features of synk
+## Key Features of synk
 1. Exposure therapies
 2. Personalized environment for dementia patients.
 3. Yoga and Gym posture correction 
